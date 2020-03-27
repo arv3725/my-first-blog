@@ -1,3 +1,4 @@
+<!-- <p>{{ post.text|linebreaksbr }}</p><br> what is linebreaksbr -->
 <html>
     <head>
         <title>Django Boy blog</title>
@@ -6,17 +7,15 @@
         <div>
             <h1><a href="/">Django boy Blog</a></h1>
         </div>
+        {% for post in posts %}
+            <div>
+            <br>
+                <p>published: {{ post.published_date }}</p>
+                <h4><a href="">{{ post.title}}</a></h4>
+                <p>{{ post.text }}</p><br>
+            </div>
+        {% endfor%}
 
-        <div>
-            <p>published: 27.03.2020, 8:24</p>
-            <h2><a href="">My first post</a></h2>
-            <p>I am enjoying django.</p>
-        </div>
-
-        <div>
-            <p>published: 27.03.2020, 8:25</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Django is very interesting.</p>
-        </div>
+    
     </body>
 </html>
