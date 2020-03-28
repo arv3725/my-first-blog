@@ -1,21 +1,14 @@
-<!-- <p>{{ post.text|linebreaksbr }}</p><br> what is linebreaksbr -->
-<html>
-    <head>
-        <title>Django Boy blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django boy Blog</a></h1>
-        </div>
-        {% for post in posts %}
-            <div>
-            <br>
-                <p>published: {{ post.published_date }}</p>
-                <h4><a href="">{{ post.title}}</a></h4>
-                <p>{{ post.text }}</p><br>
-            </div>
-        {% endfor%}
+{% extends 'blog/base.html' %}
 
-    
-    </body>
-</html>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}                    
+                
